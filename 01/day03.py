@@ -1,5 +1,4 @@
 import io
-import re
 
 
 def main():
@@ -43,8 +42,8 @@ def part1(input: list[str]) -> int:
                 num2 = num3
             elif int(num1 + num3) > max_num:
                 num2 = num3
-            max_num = int(num1+num2)
-        
+            max_num = int(num1 + num2)
+
         print(max_num)
         result += max_num
 
@@ -54,14 +53,14 @@ def part1(input: list[str]) -> int:
 def part2(input: list[str]) -> int:
     result: int = 0
 
-# TODO: Thinking about implementing this in a way where we consider dropping each digit from the number
-# starting leftmost with the new digit added to the back
+    # TODO: Thinking about implementing this in a way where we consider dropping each digit from the number
+    # starting leftmost with the new digit added to the back
 
-# TODO: Idea for alternate: just append the new character,
-# then iterate through string,
-# dropping a digit if it is less than the next digit
-# (so the greater digit shifts left)
-# Note: if none found, then the new digit is dropped again
+    # TODO: Idea for alternate: just append the new character,
+    # then iterate through string,
+    # dropping a digit if it is less than the next digit
+    # (so the greater digit shifts left)
+    # Note: if none found, then the new digit is dropped again
 
     for bank in input:
         num = bank[0:12]
@@ -69,7 +68,7 @@ def part2(input: list[str]) -> int:
 
         for next_digit in bank[12:]:
             for i in range(0, len(num)):
-                cur_num = num[0:i] + num[i+1:] + next_digit
+                cur_num = num[0:i] + num[i + 1 :] + next_digit
                 # print(f"{num} : {cur_num}")
                 # print(f"{"^":>{i}}")
                 if int(cur_num) > max_num:
@@ -79,10 +78,8 @@ def part2(input: list[str]) -> int:
                     break
                 # print()
         print(max_num)
-        
-        result += max_num
 
-        
+        result += max_num
 
     return result
 

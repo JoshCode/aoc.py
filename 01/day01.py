@@ -90,6 +90,8 @@ def part2(input: list[str]) -> int:
 
 
 def part2_alt(input: list[str]) -> int:
+    # TODO: This is mega dirty and I am very unhappy with it
+    # This should be do-able without the second loop and with a formula, right?
     position: int = 50
     password: int = 0
     total = 0
@@ -117,10 +119,8 @@ def part2_alt(input: list[str]) -> int:
 
             if position == 0:
                 password += 1
-        
-        
+
     print(f"totaal = {total}")
-            
 
     return password
 

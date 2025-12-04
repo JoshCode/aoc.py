@@ -34,8 +34,8 @@ def part1(input: list[str]) -> int:
     result_list = []
     result: int = 0
 
-    ranges = input.split(',')
-    ranges = list(map(lambda x: x.split('-'), ranges))
+    ranges = input.split(",")
+    ranges = list(map(lambda x: x.split("-"), ranges))
     ranges = list(map(lambda x: [int(x[0]), int(x[1])], ranges))
     # input = list(map(lambda x: {'lower': x[0], 'upper': x[1]}, input))
 
@@ -44,8 +44,8 @@ def part1(input: list[str]) -> int:
         for i in range(r[0], r[1] + 1):
             i = str(i)
             if (len(i) % 2) == 0:
-                i_1 = i[0:int(len(i)/2)]
-                i_2 = i[int(len(i)/2):]
+                i_1 = i[0 : int(len(i) / 2)]
+                i_2 = i[int(len(i) / 2) :]
                 if i_1 == i_2:
                     result_list.append(int(i))
                     result += int(i)
@@ -58,8 +58,8 @@ def part2(input: list[str]) -> int:
     result_list = []
     result: int = 0
 
-    ranges = input.split(',')
-    ranges = list(map(lambda x: x.split('-'), ranges))
+    ranges = input.split(",")
+    ranges = list(map(lambda x: x.split("-"), ranges))
     ranges = list(map(lambda x: [int(x[0]), int(x[1])], ranges))
     # input = list(map(lambda x: {'lower': x[0], 'upper': x[1]}, input))
 
@@ -68,7 +68,7 @@ def part2(input: list[str]) -> int:
         for i in range(r[0], r[1] + 1):
             i = str(i)
 
-            for j in range(1, int(len(i)/2) + 1):
+            for j in range(1, int(len(i) / 2) + 1):
                 pattern = i[0:j]
                 regex = re.compile(f"({pattern}){{2,}}")
                 if regex.fullmatch(i) is not None:
@@ -76,7 +76,6 @@ def part2(input: list[str]) -> int:
                     result_list.append(int(i))
                     result += int(i)
                     break
-                    
 
     return result
 
