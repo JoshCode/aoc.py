@@ -1,13 +1,14 @@
 import io
 import itertools
 
+
 def main():
     # Define the following tuples to easily switch what runs
     # First argument: If this part runs
     # Second argument: Given True on first, if the puzzle input runs on this part
     run_part1 = (False, True)
     run_part2 = (True, True)
-    
+
     with (
         open("./data/day04-example.txt", "r", encoding="utf-8") as example,
         open("./data/day04-input.txt", "r", encoding="utf-8") as input,
@@ -57,16 +58,20 @@ def part1(input: list[str]) -> tuple[int, list[str]]:
 
     # Init two grids that are 2 wider and higher than the original input
     # This is so we can easily take a 3x3 window over the original input without worrying about out-of-bounds conditions
-    input_grid: list[list[int]] = [[0 for _ in range(width+2)] for _ in range(height+2)]
-    output_grid: list[list[int]] = [[0 for _ in range(width+2)] for _ in range(height+2)]
-    
+    input_grid: list[list[int]] = [
+        [0 for _ in range(width + 2)] for _ in range(height + 2)
+    ]
+    output_grid: list[list[int]] = [
+        [0 for _ in range(width + 2)] for _ in range(height + 2)
+    ]
+
     # Set all spaces with a paper roll to 0
     # 0 meaning: not a free space
     for i, row in enumerate(input):
         for j, item in enumerate(row):
             if item == "@":
-                input_grid[i+1][j+1] = 1
-    
+                input_grid[i + 1][j + 1] = 1
+
     for i, row in enumerate(input_grid):
         if i == 0 or i == len(input_grid) - 1:
             continue
@@ -80,7 +85,7 @@ def part1(input: list[str]) -> tuple[int, list[str]]:
                     continue
                 i_off = i + offset[0]
                 j_off = j + offset[1]
-                # Clamp offset indices 
+                # Clamp offset indices
                 # i_off = max(0, min(i_off, len(input_grid)-1))
                 # j_off = max(0, min(j_off, len(row)-1))
                 count += input_grid[i_off][j_off]
@@ -94,8 +99,7 @@ def part1(input: list[str]) -> tuple[int, list[str]]:
     for i, row in enumerate(input):
         row_str = ""
         for j, item in enumerate(row):
-            
-            if item == "@" and output_grid[i+1][j+1] < 4:
+            if item == "@" and output_grid[i + 1][j + 1] < 4:
                 row_str += "x"
                 result += 1
             else:
@@ -128,7 +132,7 @@ def part2(input: list[str]) -> int:
         # Clear removed rows from input
         for i in range(len(new_input)):
             new_input[i] = new_input[i].replace("x", ".")
-        
+
         # print("Processed")
         # print(render_grid(new_input))
 
@@ -148,6 +152,7 @@ def render_grid(grid) -> str:
         result = result[-1:]
         result += "\n"
     return result
+
 
 if __name__ == "__main__":
     main()
