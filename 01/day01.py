@@ -97,7 +97,6 @@ def part2_alt(input: list[str]) -> int:
     total = 0
 
     for line in input:
-        old_position = position
         direction: int = 0
         match line[0]:
             case "L":

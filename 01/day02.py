@@ -61,7 +61,6 @@ def part2(input: list[str]) -> int:
     ranges = input.split(",")
     ranges = list(map(lambda x: x.split("-"), ranges))
     ranges = list(map(lambda x: [int(x[0]), int(x[1])], ranges))
-    # input = list(map(lambda x: {'lower': x[0], 'upper': x[1]}, input))
 
     for r in ranges:
         # print(r)
