@@ -22,8 +22,8 @@ def main():
     run_part2 = (True, False)
 
     with (
-        open("./data/day04-example.txt", "r", encoding="utf-8") as example,
-        open("./data/day04-input.txt", "r", encoding="utf-8") as input,
+        open("./data/day00-example.txt", "r", encoding="utf-8") as example,
+        open("./data/day00-input.txt", "r", encoding="utf-8") as input,
     ):
         example_lines = []
         for row in example.readlines():
