@@ -1,11 +1,13 @@
-import io
 import re
 
 
 def main():
+    import io
+    from pathlib import Path
+    input_path = Path.relative_to = Path(__file__).parent
     with (
-        open("./data/day02-example.txt", "r", encoding="utf-8") as example,
-        open("./data/day02-input.txt", "r", encoding="utf-8") as input,
+        open(input_path / "data/day02-example.txt", "r", encoding="utf-8") as example,
+        open(input_path / "data/day02-input.txt", "r", encoding="utf-8") as input,
     ):
         print("-> Running part 1")
         print("   > Example")

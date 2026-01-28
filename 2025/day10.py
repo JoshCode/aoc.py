@@ -1,9 +1,7 @@
-import io
 from dataclasses import dataclass
 from functools import reduce
 from copy import copy
 from itertools import combinations_with_replacement
-import sys
 
 
 @dataclass
@@ -210,15 +208,19 @@ def solve_machine_joltage(button_set: list[Button], current_sequence: list[Butto
 
 # region Input file handling
 def main():
+    import io
+    from pathlib import Path
+
     # Define the following tuples to easily switch what runs
     # First argument: If this part runs
     # Second argument: Given True on first, if the puzzle input runs on this part
     run_part1 = (False, True, True)
     run_part2 = (True, True, True)
+    input_path = Path.relative_to = Path(__file__).parent
 
     with (
-        open("./data/day10-example.txt", "r", encoding="utf-8") as example,
-        open("./data/day10-input.txt", "r", encoding="utf-8") as input,
+        open(input_path / "data/day10-example.txt", "r", encoding="utf-8") as example,
+        open(input_path / "data/day10-input.txt", "r", encoding="utf-8") as input,
     ):
         example_lines = []
         for row in example.readlines():

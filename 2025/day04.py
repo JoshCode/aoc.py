@@ -1,17 +1,20 @@
-import io
 import itertools
 
 
 def main():
+    import io
+    from pathlib import Path
+
     # Define the following tuples to easily switch what runs
     # First argument: If this part runs
     # Second argument: Given True on first, if the puzzle input runs on this part
     run_part1 = (False, True)
     run_part2 = (True, True)
+    input_path = Path.relative_to = Path(__file__).parent
 
     with (
-        open("./data/day04-example.txt", "r", encoding="utf-8") as example,
-        open("./data/day04-input.txt", "r", encoding="utf-8") as input,
+        open(input_path / "data/day04-example.txt", "r", encoding="utf-8") as example,
+        open(input_path / "data/day04-input.txt", "r", encoding="utf-8") as input,
     ):
         example_lines = []
         for row in example.readlines():

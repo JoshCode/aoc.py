@@ -1,11 +1,12 @@
 import math
-import io
-
 
 def main():
+    import io
+    from pathlib import Path
+    input_path = Path.relative_to = Path(__file__).parent
     with (
-        open("./data/day01-example.txt", "r", encoding="utf-8") as example,
-        open("./data/day01-input.txt", "r", encoding="utf-8") as input,
+        open(input_path / "data/day01-example.txt", "r", encoding="utf-8") as example,
+        open(input_path / "data/day01-input.txt", "r", encoding="utf-8") as input,
     ):
         print("-> Running part 1")
         out1_e = part1(example.readlines())
