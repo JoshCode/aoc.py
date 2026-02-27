@@ -60,6 +60,8 @@ def main():
         for row in input.readlines():
             input_lines.append(row.replace("\n", ""))
 
+        out1_e = out1_i = out2_e = out2_i = None
+
         if run_part1[0]:
             print("-> Running part 1")
             print("   > Example")
