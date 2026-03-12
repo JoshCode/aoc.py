@@ -1,9 +1,8 @@
 from typing import Any
 
+
 def part1(input: list[str]) -> Any:
     result: int = 0
-
-
 
     return result
 
@@ -11,20 +10,19 @@ def part1(input: list[str]) -> Any:
 def part2(input: list[str]) -> Any:
     result: int = 0
 
-
-
     return result
 
 
 # region Input file handling
 def main():
     from pathlib import Path
+
     # Define the following tuples to easily switch what runs
     # First argument: If this part runs
     # Second argument: Given True on first, if the puzzle input runs on this part
     run_part1 = (True, False)
     run_part2 = (True, False)
-    
+
     script_file = Path(__file__)
     day_nr = script_file.stem[-2:]
 
