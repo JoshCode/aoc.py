@@ -23,6 +23,9 @@ def main():
     run_part1 = (True, False)
     run_part2 = (True, False)
 
+    global is_example
+    is_example = False
+
     script_file = Path(__file__)
     day_nr = script_file.stem[-2:]
 
@@ -52,18 +55,22 @@ def main():
             print("-> Running part 1")
             if run_part1[0]:
                 print("   > Example")
+                is_example = True
                 out1_e = part1(example_lines)
             if run_part1[1]:
                 print("   > Input")
+                is_example = False
                 out1_i = part1(input_lines)
 
         if any(run_part2):
             print("-> Running part 2")
             if run_part2[0]:
                 print("   > Example")
+                is_example = True
                 out2_e = part2(example_lines)
             if run_part2[1]:
                 print("   > Input")
+                is_example = False
                 out2_i = part2(input_lines)
 
         print("")
